@@ -6,7 +6,7 @@
 #! usr/bin/bash
 
 
-blastn -query $1 -subject $2 -task blastn-short -outfmt "6 qseqid sseqid qlen slen pident length" -out temp_file.blast
+tblastn -query $1 -subject $2 -task blastn-short -outfmt "6 qseqid sseqid qlen slen pident length" -out temp_file.blast
 
 awk '$5 == 100.000 && $3 == $6' temp_file.blast > "$3"
 
